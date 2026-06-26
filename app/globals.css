@@ -14,7 +14,8 @@
 body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
-  background-color: #f8f6f1;
+  background-color: #0f0f0f;
+  color: #f0ece4;
 }
 
 h1, h2, h3, .font-display {

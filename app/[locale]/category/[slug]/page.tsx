@@ -69,57 +69,64 @@ export default async function CategoryPage({
   ]);
 
   const name = category
-    ? locale === 'tr'
-      ? category.name_tr
-      : category.name_en
+    ? locale === 'tr' ? category.name_tr : category.name_en
     : slug;
 
   const heroImg = category?.image_url || null;
 
   return (
-    <div className="min-h-screen" style={{ background: '#f8f6f1' }}>
+    <div className="min-h-screen bg-[#0f0f0f]">
       <Header locale={locale} settings={settings} />
 
-      {/* Category hero */}
-      {heroImg && (
-        <div className="relative h-40 sm:h-56 w-full overflow-hidden">
+      {/* Hero */}
+      {heroImg ? (
+        <div className="relative h-48 sm:h-60 w-full overflow-hidden">
           <Image
             src={heroImg}
             alt={name}
             fill
-            className="object-cover"
+            className="object-cover brightness-50"
             unoptimized
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
-          <div className="absolute bottom-0 left-0 right-0 max-w-5xl mx-auto px-4 sm:px-6 pb-4 sm:pb-6">
-            <h1 className="font-display font-bold text-2xl sm:text-4xl text-white tracking-wide drop-shadow-sm">
-              {name}
-            </h1>
-            <p className="text-white/70 text-sm mt-1">{items.length} {t('items')}</p>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-black/40 to-transparent" />
+
+          {/* Back */}
+          <Link
+            href={`/${locale}`}
+            className="absolute top-4 left-4 flex items-center gap-1 bg-[#0f0f0f]/70 border border-[#333] backdrop-blur-sm text-[#ccc] text-xs font-medium px-3 py-1.5 rounded-full hover:border-[#D4A843]/50 hover:text-[#D4A843] transition-colors"
+          >
+            <ChevronLeft size={13} />
+            {t('backToMenu')}
+          </Link>
+
+          {/* Title */}
+          <div className="absolute bottom-0 left-0 right-0 px-4 pb-5 sm:px-6">
+            <h1 className="font-display font-bold text-3xl sm:text-4xl text-[#f0ece4] drop-shadow">{name}</h1>
+            <div className="flex items-center gap-2 mt-1">
+              <div className="h-[1.5px] w-8 bg-[#D4A843] rounded-full" />
+              <p className="text-[#666] text-xs">{items.length} {t('items')}</p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="border-b border-[#1e1e1e] px-4 py-5 sm:px-6">
+          <Link
+            href={`/${locale}`}
+            className="inline-flex items-center gap-1 text-[#555] hover:text-[#D4A843] text-sm font-medium transition-colors mb-3"
+          >
+            <ChevronLeft size={14} />
+            {t('backToMenu')}
+          </Link>
+          <h1 className="font-display font-bold text-2xl sm:text-3xl text-[#f0ece4]">{name}</h1>
+          <div className="flex items-center gap-2 mt-1.5">
+            <div className="h-[1.5px] w-8 bg-[#D4A843] rounded-full" />
+            <p className="text-[#555] text-xs">{items.length} {t('items')}</p>
           </div>
         </div>
       )}
 
       <main className="max-w-5xl mx-auto px-4 sm:px-6 pb-16 pt-5">
-        {/* Back + title when no hero */}
-        <div className="flex items-center gap-2 mb-4">
-          <Link
-            href={`/${locale}`}
-            className="flex items-center gap-1 text-stone-500 hover:text-brand-700 text-sm font-medium transition-colors"
-          >
-            <ChevronLeft size={16} />
-            {t('backToMenu')}
-          </Link>
-        </div>
-
-        {!heroImg && (
-          <div className="mb-5">
-            <h1 className="font-display font-bold text-2xl sm:text-3xl text-stone-800">{name}</h1>
-            <p className="text-stone-400 text-sm mt-1">{items.length} {t('items')}</p>
-          </div>
-        )}
-
         <ItemsGrid items={items} locale={locale} />
       </main>
 
