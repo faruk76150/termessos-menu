@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "menu": "Menü",
+    "home": "Anasayfa",
+    "back": "Geri Dön"
+  },
+  "home": {
+    "title": "Termessos Hotel Menü",
+    "subtitle": "Göreme / Nevşehir",
+    "hours": "07:00 – 00:00",
+    "welcome": "Ne Yemek İstersiniz?",
+    "food": "Yiyecekler",
+    "drinks": "İçecekler",
+    "search": "Ara...",
+    "noResults": "Sonuç bulunamadı",
+    "featured": "Öne Çıkanlar",
+    "allCategories": "Tüm Kategoriler"
+  },
+  "category": {
+    "backToMenu": "Menüye Dön",
+    "items": "ürün"
+  },
+  "item": {
+    "price": "Fiyat",
+    "addToCart": "Siparişe Ekle",
+    "backToCategory": "Kategoriye Dön"
+  },
+  "footer": {
+    "prices": "Fiyatlarımız TL cinsindendir ve KDV dahildir.",
+    "allergy": "Herhangi bir yiyeceğe alerjiniz varsa, lütfen sipariş vermeden önce servis personelini bilgilendiriniz.",
+    "copyright": "© 2026 Termessos Hotel. Tüm hakları saklıdır."
+  },
+  "admin": {
+    "title": "Termessos Admin Paneli",
+    "dashboard": "Gösterge Paneli",
+    "categories": "Kategoriler",
+    "items": "Ürünler",
+    "logout": "Çıkış",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "add": "Ekle",
+    "name_tr": "Ad (Türkçe)",
+    "name_en": "Ad (İngilizce)",
+    "description_tr": "Açıklama (Türkçe)",
+    "description_en": "Açıklama (İngilizce)",
+    "price": "Fiyat (TL)",
+    "image_url": "Görsel URL",
+    "is_active": "Aktif",
+    "is_featured": "Öne Çıkan",
+    "is_drink": "İçecek Kategorisi",
+    "display_order": "Sıralama",
+    "category": "Kategori",
+    "totalCategories": "Toplam Kategori",
+    "totalItems": "Toplam Ürün",
+    "activeItems": "Aktif Ürün"
+  },
+  "login": {
+    "title": "Admin Girişi",
+    "username": "Kullanıcı Adı",
+    "password": "Şifre",
+    "submit": "Giriş Yap",
+    "error": "Geçersiz kullanıcı adı veya şifre"
+  }
+}

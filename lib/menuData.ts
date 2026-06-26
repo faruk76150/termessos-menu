@@ -1,0 +1,278 @@
+import type { Category } from './types';
+
+export const CATEGORIES: Omit<Category, 'id'>[] = [
+  { slug: 'kahvalti',      name_tr: 'Kahvaltı',                    name_en: 'Breakfast',                     image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/2Cm4B6oAYAKCTxgT_salZjloQe_FkzUkMO0txr7OcU-neod4NRostK5F4r2h-ipGcNsdIJb6plcVk7uYnlmq75mmx5ERERcTpyZ1VIC9sM.jpg', display_order: 1,  is_active: true, is_drink: false },
+  { slug: 'gozleme',       name_tr: 'Gözleme',                     name_en: 'Turkish Flatbread',             image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/pkCNKqsIUe2rkRNlp6pGO23a8nGDnz980G4dVH8npin2NO1U7IWKowSG3lHensxdTxGrorwpu5sWK8JbdW-9yZuQGSrlq1EU5I1oRCdfl7Y.jpg', display_order: 2,  is_active: true, is_drink: false },
+  { slug: 'gunun-corbasi', name_tr: 'Günün Çorbası',               name_en: 'Soup of the Day',               image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/hot-and-sour-soup.png', display_order: 3, is_active: true, is_drink: false },
+  { slug: 'meze',          name_tr: 'Meze',                        name_en: 'Mezze',                         image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/C1iTbkE_aABWqC2tfe1rDNw7SMhSIf2VQ1uJJERaht4uYSF5QYFmxEmHKYtrRTIfG0sNG7tt9hqP1qz0Tc9K15LLNSeR3F_ay0Q7ekjmHlw.jpg', display_order: 4, is_active: true, is_drink: false },
+  { slug: 'ara-sicaklar',  name_tr: 'Ara Sıcaklar',               name_en: 'Hot Starters',                  image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/65270.jpg', display_order: 5, is_active: true, is_drink: false },
+  { slug: 'salatalar',     name_tr: 'Salatalar',                   name_en: 'Salads',                        image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/FuEzQKiARJz1AA7D1cTZCFEIOr2matesH0mYpYg-pAVNTnfoxTUKVx1FpsaLS6BfVH4NQHR2i4j_dUeMWipay6cwdu0xmpEfrOWXa-qed9E.jpg', display_order: 6, is_active: true, is_drink: false },
+  { slug: 'fast-food',     name_tr: 'Fast Food',                   name_en: 'Fast Food',                     image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/kMyAfOQHr8PFQ3m1qY3fyEH1x8OX-avUiyOdbw133485uKH4dFiuVWLJsIhqWqsyopq3adQaQUFZFCl_iSrGXVOUd1ElfuitBuHSfaSBc2HQRoO8w1XU9fzw7HtC93pgxm6yVnVCdfBk7eAp6tLsMg.jpg', display_order: 7, is_active: true, is_drink: false },
+  { slug: 'tava-yemekleri',name_tr: 'Tava Yemekleri',              name_en: 'Pan Dishes',                    image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/FNfJasznUHWdMN1dznqO3IDwXZoLwUUQNpIk8lRWASGYr6CkaewcE5PARUYkGWv5CdZ6apH_xIWDoOKI1hVtXD2l7y7Yk59-VZBEen7lpGE.jpg', display_order: 8, is_active: true, is_drink: false },
+  { slug: 'makarnalar',    name_tr: 'Makarnalar',                  name_en: 'Pasta',                         image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/AR-23431-to-die-for-fettuccine-alfredo-DDMFS-beauty-3x4-b64d36c7ff314cb39774e261c5b18352.jpg', display_order: 9, is_active: true, is_drink: false },
+  { slug: 'ana-yemekler',  name_tr: 'Ana Yemekler',                name_en: 'Main Courses',                  image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/partridge-in-cider-with-apples-celery-dd0f3c6.jpg', display_order: 10, is_active: true, is_drink: false },
+  { slug: 'baliklar',      name_tr: 'Balıklar',                    name_en: 'Fish',                          image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/balik_cesitleri.jpg', display_order: 11, is_active: true, is_drink: false },
+  { slug: 'testi-kebaplari',name_tr:'Testi Kebapları',             name_en: 'Clay Pot Kebabs',               image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/kebaplar.jpg', display_order: 12, is_active: true, is_drink: false },
+  { slug: 'tatlilar',      name_tr: 'Tatlılar',                    name_en: 'Desserts',                      image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/pastalar.png', display_order: 13, is_active: true, is_drink: false },
+  { slug: 'soguk-icecekler',name_tr:'Soğuk İçecekler',            name_en: 'Cold Beverages',                image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/115044823.webp', display_order: 14, is_active: true, is_drink: true },
+  { slug: 'sicak-icecekler',name_tr:'Sıcak İçecekler',            name_en: 'Hot Beverages',                 image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/711j8n5HYTL._AC_UF350-350_QL80.jpg', display_order: 15, is_active: true, is_drink: true },
+  { slug: 'kokteyller-alkolsuz', name_tr:'Kokteyller (Alkolsüz)', name_en: 'Mocktails',                     image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/yjGQIGGlCNXrNbKq4trdhXbbgRBdJAt92iz65dKCURxNTfmoIs90N8LNIu8w8SSkJdxdmm4xwdFuzFE8wOOxzXDeXdO-q9N2Kl2SULM6ow.jpg', display_order: 16, is_active: true, is_drink: true },
+  { slug: 'biralar',       name_tr: 'Biralar',                     name_en: 'Beers',                         image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/BİRALAR.jpg', display_order: 17, is_active: true, is_drink: true },
+  { slug: 'cin',           name_tr: 'Cin',                         name_en: 'Gin',                           image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/cin-kokteyller-1.jpg', display_order: 18, is_active: true, is_drink: true },
+  { slug: 'rakilar',       name_tr: 'Rakılar',                     name_en: 'Raki',                          image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/r-a-k-i10.webp', display_order: 19, is_active: true, is_drink: true },
+  { slug: 'votka',         name_tr: 'Votka',                       name_en: 'Vodka',                         image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/votka.webp', display_order: 20, is_active: true, is_drink: true },
+  { slug: 'alkollu-icecekler-kokteyller', name_tr: 'Alkollü İçecekler & Kokteyller', name_en: 'Cocktails & Spirits', image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/65b355d614d854d345bf8d58_Must-Have-Cocktail-Menu.jpg', display_order: 21, is_active: true, is_drink: true },
+  { slug: 'viski',         name_tr: 'Viski',                       name_en: 'Whiskey',                       image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urun_kategoriler/viski.avif', display_order: 22, is_active: true, is_drink: true },
+  { slug: 'sarap',         name_tr: 'Şarap',                       name_en: 'Wine',                          image_url: null, display_order: 23, is_active: true, is_drink: true },
+];
+
+type SeedItem = { category_slug: string; slug: string; name_tr: string; name_en: string; price: number; image_url: string | null; is_featured?: boolean; description_tr?: string; description_en?: string; };
+
+export const MENU_ITEMS: SeedItem[] = [
+  // KAHVALTI
+  { category_slug: 'kahvalti', slug: 'kahvalti-tabagi',     name_tr: 'Kahvaltı Tabağı',      name_en: 'Breakfast Plate',              price: 500, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/2T_CsOqu2sLcsg-ebVl3tYIZ8FciXlcYURmrWonu5V-29PTO73bssR9C5eBD21be1W0zjoMGzq3v-QyhKjEZJd4WKysWCHbvc8toCJlXGDo.jpg', is_featured: true },
+  { category_slug: 'kahvalti', slug: 'menemen',             name_tr: 'Menemen',               name_en: 'Menemen (Turkish Scrambled Eggs)', price: 300, image_url: null },
+  { category_slug: 'kahvalti', slug: 'sucuklu-yumurta',     name_tr: 'Sucuklu Yumurta',       name_en: 'Eggs with Turkish Sausage',    price: 380, image_url: null },
+  { category_slug: 'kahvalti', slug: 'peynirli-omlet',      name_tr: 'Peynirli Omlet',        name_en: 'Cheese Omelette',              price: 330, image_url: null },
+  { category_slug: 'kahvalti', slug: 'sahanda-yumurta',     name_tr: 'Sahanda Yumurta',       name_en: 'Fried Eggs',                   price: 300, image_url: null },
+  { category_slug: 'kahvalti', slug: 'et-kavurmali-yumurta',name_tr: 'Et Kavurmalı Yumurta',  name_en: 'Eggs with Meat Sauté',         price: 450, image_url: null },
+  { category_slug: 'kahvalti', slug: 'serpme-kahvalti',     name_tr: 'Serpme Kahvaltı',       name_en: 'Turkish Spread Breakfast',     price: 700, image_url: null, is_featured: true, description_tr: 'Zengin içerikli geleneksel Türk kahvaltısı.', description_en: 'A rich traditional Turkish breakfast spread.' },
+
+  // GÖZLEME
+  { category_slug: 'gozleme', slug: 'ispanakli-gozleme',  name_tr: 'Ispanaklı Gözleme',  name_en: 'Spinach Flatbread',       price: 360, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/ispanakli-gozleme.jpg' },
+  { category_slug: 'gozleme', slug: 'kiymali-gozleme',    name_tr: 'Kıymalı Gözleme',   name_en: 'Minced Meat Flatbread',   price: 440, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/k%C4%B1ymal%C4%B1-gozleme.jpg' },
+  { category_slug: 'gozleme', slug: 'peynirli-gozleme',   name_tr: 'Peynirli Gözleme',  name_en: 'Cheese Flatbread',        price: 360, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/peynirli-gozleme.jpg' },
+  { category_slug: 'gozleme', slug: 'patatesli-gozleme',  name_tr: 'Patatesli Gözleme', name_en: 'Potato Flatbread',        price: 360, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/patatesli-gozleme.jpg' },
+
+  // GÜNÜN ÇORBASI
+  { category_slug: 'gunun-corbasi', slug: 'gunun-corbasi', name_tr: 'Günün Çorbası', name_en: 'Soup of the Day', price: 200, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Gunun-corbas%C4%B1.jpg', description_tr: 'Çeşit bilgisi için lütfen garsonunuza danışınız.', description_en: 'Please ask your waiter for today\'s soup.' },
+
+  // MEZE
+  { category_slug: 'meze', slug: 'peynir-tabagi',  name_tr: 'Peynir Tabağı',  name_en: 'Cheese Platter',      price: 400, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/peynir-taba%C4%9F%C4%B1.jpg', is_featured: true },
+  { category_slug: 'meze', slug: 'mutebbel',       name_tr: 'Mütebbel',       name_en: 'Mutebbel Dip',        price: 250, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/mutebbel-tarifi-745-meze-tarifleri-mutebbel-tarifi-732-74-B.jpg' },
+  { category_slug: 'meze', slug: 'kuru-cacik',     name_tr: 'Kuru Cacık',     name_en: 'Thick Tzatziki',      price: 250, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/kuru-cac%C4%B1k-new.jpeg' },
+  { category_slug: 'meze', slug: 'yaprak-sarma',   name_tr: 'Yaprak Sarma',   name_en: 'Stuffed Vine Leaves', price: 250, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Zeytinya%C4%9Fl%C4%B1-Yaprak-Sarma-800x800.png' },
+  { category_slug: 'meze', slug: 'haydari',        name_tr: 'Haydari',        name_en: 'Haydari (Yogurt Dip)',price: 250, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/haydari.jpg' },
+  { category_slug: 'meze', slug: 'atom',           name_tr: 'Atom',           name_en: 'Atom (Spicy Dip)',    price: 250, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/atom.webp' },
+  { category_slug: 'meze', slug: 'acili-ezme',     name_tr: 'Acılı Ezme',     name_en: 'Spicy Tomato Dip',   price: 250, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/ac%C4%B1l%C4%B1-ezem.jpg' },
+  { category_slug: 'meze', slug: 'havuc-tarator',  name_tr: 'Havuç Tarator',  name_en: 'Carrot Tarator',     price: 250, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/havuc.webp' },
+  { category_slug: 'meze', slug: 'humus',          name_tr: 'Humus',          name_en: 'Hummus',             price: 250, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/lQD19d_VL8kg2Zn8pm3wUnXzvuUBPvYxw6relQRxgZP7K1rN9nriwPauIIm7h6uNTbzpXpwn_ueop0k5ADqt6hRmDjGf2gV0CeNBLbbWnt8.jpg' },
+
+  // ARA SICAKLAR
+  { category_slug: 'ara-sicaklar', slug: 'pastirmali-humus', name_tr: 'Pastırmalı Humus',  name_en: 'Hummus with Cured Beef',  price: 400, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Past%C4%B1rmal%C4%B1-humus.jpg', is_featured: true },
+  { category_slug: 'ara-sicaklar', slug: 'karides-guvec',   name_tr: 'Karides Güveç',     name_en: 'Shrimp Casserole',        price: 400, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Karides-Guvec.jpg' },
+  { category_slug: 'ara-sicaklar', slug: 'sigara-boregi',   name_tr: 'Sigara Böreği',     name_en: 'Fried Cheese Rolls',     price: 250, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Sigara-boregi.jpg' },
+  { category_slug: 'ara-sicaklar', slug: 'arnavut-cigeri',  name_tr: 'Arnavut Ciğeri',    name_en: 'Albanian-style Liver',   price: 250, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Arnavut-Ci%C4%9Feri.jpeg' },
+  { category_slug: 'ara-sicaklar', slug: 'pacanga-boregi',  name_tr: 'Paçanga Böreği',    name_en: 'Paçanga Pastry',         price: 290, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Pacanga-Bore%C4%9Fi.jpg' },
+  { category_slug: 'ara-sicaklar', slug: 'icli-kofte',      name_tr: 'İçli Köfte',        name_en: 'Stuffed Meatballs',      price: 290, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/icli-kofte.jpg' },
+
+  // SALATALAR
+  { category_slug: 'salatalar', slug: 'sezar-salata',      name_tr: 'Sezar Salata',      name_en: 'Caesar Salad',           price: 400, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Sezar-Salata.jpg' },
+  { category_slug: 'salatalar', slug: 'gavurdagi-salatasi',name_tr: 'Gavurdağı Salatası',name_en: 'Gavurdağı Salad',        price: 340, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Gevurda%C4%9F%C4%B1-salatas%C4%B1.jpg' },
+  { category_slug: 'salatalar', slug: 'roka-salatasi',     name_tr: 'Roka Salatası',     name_en: 'Arugula Salad',          price: 290, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/roka-salatas%C4%B1.jpg' },
+  { category_slug: 'salatalar', slug: 'ton-balikli-salata',name_tr: 'Ton Balıklı Salata',name_en: 'Tuna Salad',             price: 380, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/ton-bal%C4%B1kl%C4%B1-salata.jpg' },
+  { category_slug: 'salatalar', slug: 'sefin-salatasi',    name_tr: "Şefin Salatası",    name_en: "Chef's Salad",           price: 400, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/%C5%9Eefin-salatas%C4%B1.jpg', is_featured: true },
+  { category_slug: 'salatalar', slug: 'mevsim-salatasi',   name_tr: 'Mevsim Salatası',   name_en: 'Seasonal Salad',         price: 320, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Mevsim-Salata.jpg' },
+
+  // FAST FOOD
+  { category_slug: 'fast-food', slug: 'durum-et-doner',           name_tr: 'Dürüm Et Döner',             name_en: 'Beef Wrap Döner',            price: 460, image_url: null },
+  { category_slug: 'fast-food', slug: 'durum-tavuk-doner',        name_tr: 'Dürüm Tavuk Döner',          name_en: 'Chicken Wrap Döner',         price: 390, image_url: null },
+  { category_slug: 'fast-food', slug: 'karisik-durum',            name_tr: 'Karışık Dürüm (Et & Tavuk)', name_en: 'Mixed Wrap (Beef & Chicken)',price: 540, image_url: null },
+  { category_slug: 'fast-food', slug: 'servis-doner-et',          name_tr: 'Servis Döner (Et)',           name_en: 'Beef Döner Platter',         price: 490, image_url: null },
+  { category_slug: 'fast-food', slug: 'keyif-tabagi',             name_tr: 'Keyif Tabağı',               name_en: 'Delight Platter',            price: 450, image_url: null },
+  { category_slug: 'fast-food', slug: 'tavuk-wrap',               name_tr: 'Tavuk Wrap',                 name_en: 'Chicken Wrap',               price: 400, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/tavuk-wrap.jpg' },
+  { category_slug: 'fast-food', slug: 'et-wrap',                  name_tr: 'Et Wrap',                    name_en: 'Beef Wrap',                  price: 490, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Et-Wrap.jpg' },
+  { category_slug: 'fast-food', slug: 'combo-wrap',               name_tr: 'Combo Wrap (Et & Tavuk)',    name_en: 'Combo Wrap (Beef & Chicken)',price: 550, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Combo-Wrap.jpg' },
+  { category_slug: 'fast-food', slug: 'termessos-special-burger', name_tr: 'Termessos Special Burger',   name_en: 'Termessos Special Burger',   price: 530, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Termessos-Burger.png', is_featured: true },
+  { category_slug: 'fast-food', slug: 'citir-tavuk',              name_tr: 'Çıtır Tavuk',               name_en: 'Crispy Chicken',             price: 450, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/C%C4%B1t%C4%B1r-Tavuk.png' },
+  { category_slug: 'fast-food', slug: 'cheeseburger',             name_tr: 'Cheeseburger',               name_en: 'Cheeseburger',               price: 480, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Cheesburger.png' },
+  { category_slug: 'fast-food', slug: 'sinitzel',                 name_tr: 'Şinitzel',                  name_en: 'Schnitzel',                  price: 450, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/%C5%9Einitzel.png' },
+  { category_slug: 'fast-food', slug: 'chicken-burger',           name_tr: 'Chicken Burger',             name_en: 'Chicken Burger',             price: 390, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Tavukburger.png' },
+  { category_slug: 'fast-food', slug: 'hamburger',                name_tr: 'Hamburger',                  name_en: 'Hamburger',                  price: 430, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Hamburger.png' },
+
+  // TAVA YEMEKLERİ
+  { category_slug: 'tava-yemekleri', slug: 'kori-soslu-tavuk',   name_tr: 'Köri Soslu Tavuk',  name_en: 'Curry Chicken',         price: 560, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Kori-soslu-tavuk.jpg' },
+  { category_slug: 'tava-yemekleri', slug: 'barbeku-soslu-tavuk',name_tr: 'Barbekü Soslu Tavuk',name_en: 'BBQ Chicken',          price: 560, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Barbeku-soslu-tavuk.png' },
+  { category_slug: 'tava-yemekleri', slug: 'meksika-soslu-tavuk',name_tr: 'Meksika Soslu Tavuk',name_en: 'Mexican Chicken',      price: 630, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Meksika-soslu-tavuk.png' },
+  { category_slug: 'tava-yemekleri', slug: 'tavuk-osmanish',     name_tr: 'Tavuk Osmaniş',     name_en: 'Ottoman Chicken',       price: 690, image_url: null },
+  { category_slug: 'tava-yemekleri', slug: 'et-osmanis',         name_tr: 'Et Osmaniş',        name_en: 'Ottoman Beef',          price: 840, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Osmani%C5%9F.jpg', is_featured: true },
+  { category_slug: 'tava-yemekleri', slug: 'kuzu-osmanis',       name_tr: 'Kuzu Osmaniş',      name_en: 'Ottoman Lamb',          price: 890, image_url: null },
+
+  // MAKARNALAR
+  { category_slug: 'makarnalar', slug: 'penne-arrabbiata',    name_tr: 'Penne Arrabbiata',     name_en: 'Penne Arrabbiata',        price: 460, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Penne-arrabbiata.jpg' },
+  { category_slug: 'makarnalar', slug: 'manti',               name_tr: 'Mantı',                name_en: 'Turkish Ravioli (Mantı)', price: 570, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Mant%C4%B1.jpg', is_featured: true },
+  { category_slug: 'makarnalar', slug: 'tavuklu-kremali-penne',name_tr:'Tavuklu Kremalı Penne',name_en: 'Creamy Chicken Penne',    price: 490, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Tavuk-Kremal%C4%B1-penne.jpg' },
+  { category_slug: 'makarnalar', slug: 'fettucine',           name_tr: 'Fettucine',            name_en: 'Fettuccine',              price: 490, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Fettucine-Tavuklu.jpg' },
+
+  // ANA YEMEKLER
+  { category_slug: 'ana-yemekler', slug: 'kuzu-incik',           name_tr: 'Kuzu İncik',              name_en: 'Braised Lamb Shank',       price: 1250, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/kuzu-incik.jpg', is_featured: true },
+  { category_slug: 'ana-yemekler', slug: 'dana-bonfile',          name_tr: 'Dana Bonfile',             name_en: 'Beef Tenderloin',          price: 1000, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Dana-Bonfile.jpg' },
+  { category_slug: 'ana-yemekler', slug: 'erik-soslu-dana-bonfile',name_tr:'Erik Soslu Dana Bonfile',  name_en: 'Beef Tenderloin with Plum Sauce', price: 1100, image_url: null },
+  { category_slug: 'ana-yemekler', slug: 'kuzu-pirzola',          name_tr: 'Kuzu Pirzola',             name_en: 'Lamb Chops',               price: 1100, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Kuzu-pirzola.jpg' },
+  { category_slug: 'ana-yemekler', slug: 'sefin-koftesi',         name_tr: "Şefin Köftesi",           name_en: "Chef's Meatballs",         price: 750,  image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/%C5%9Eefin-Koftesi.png' },
+
+  // BALIKLAR
+  { category_slug: 'baliklar', slug: 'izgara-levrek', name_tr: 'Izgara Levrek', name_en: 'Grilled Sea Bass',  price: 980, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/izgara-levrek.jpg', is_featured: true },
+  { category_slug: 'baliklar', slug: 'izgara-cipura', name_tr: 'Izgara Çipura', name_en: 'Grilled Sea Bream', price: 980, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Izgara-cipura.jpg' },
+
+  // TESTİ KEBAPLARI
+  { category_slug: 'testi-kebaplari', slug: 'vejetaryen-testi',  name_tr: 'Vejetaryen Testi',    name_en: 'Vegetarian Clay Pot',     price: 680,  image_url: null },
+  { category_slug: 'testi-kebaplari', slug: 'servis-doner-tavuk',name_tr: 'Servis Döner (Tavuk)',name_en: 'Chicken Döner Platter',   price: 400,  image_url: null },
+  { category_slug: 'testi-kebaplari', slug: 'tavuk-testi',       name_tr: 'Tavuk Testi',         name_en: 'Chicken Clay Pot',        price: 780,  image_url: null },
+  { category_slug: 'testi-kebaplari', slug: 'dana-testi-kebabi', name_tr: 'Dana Testi Kebabı',   name_en: 'Beef Clay Pot Kebab',     price: 1050, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Testi-Kebab.jpg', is_featured: true },
+  { category_slug: 'testi-kebaplari', slug: 'kuzu-testi',        name_tr: 'Kuzu Testi',          name_en: 'Lamb Clay Pot',           price: 1150, image_url: null },
+
+  // TATLILAR
+  { category_slug: 'tatlilar', slug: 'baklava',           name_tr: 'Baklava',           name_en: 'Baklava',               price: 390, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Baklava.jpg', is_featured: true },
+  { category_slug: 'tatlilar', slug: 'soguk-baklava',     name_tr: 'Soğuk Baklava',     name_en: 'Cold Baklava',          price: 390, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/so%C4%9Fuk-baklava.jpg' },
+  { category_slug: 'tatlilar', slug: 'fistikli-katmer',   name_tr: 'Fıstıklı Katmer',   name_en: 'Pistachio Katmer',      price: 350, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/F%C4%B1st%C4%B1kl%C4%B1-katmer.jpg' },
+  { category_slug: 'tatlilar', slug: 'citir-kabak-tatlisi',name_tr:'Çıtır Kabak Tatlısı',name_en:'Crispy Pumpkin Dessert',price: 380, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Kabak.jpg' },
+  { category_slug: 'tatlilar', slug: 'sufle',             name_tr: 'Sufle',             name_en: 'Chocolate Soufflé',     price: 350, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Sufle.jpg' },
+  { category_slug: 'tatlilar', slug: 'fistikli-pasta',    name_tr: 'Fıstıklı Pasta',    name_en: 'Pistachio Cake',        price: 380, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/F%C4%B1st%C4%B1kl%C4%B1-pasta.jpg' },
+  { category_slug: 'tatlilar', slug: 'frambuazli-pasta',  name_tr: 'Frambuazlı Pasta',  name_en: 'Raspberry Cake',        price: 320, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/frambuazli-pasta.jpg' },
+  { category_slug: 'tatlilar', slug: 'profiterol',        name_tr: 'Profiterol',        name_en: 'Profiterole',           price: 350, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/profiterol.jpeg' },
+  { category_slug: 'tatlilar', slug: 'meyve-tabagi',      name_tr: 'Meyve Tabağı',      name_en: 'Fruit Platter',         price: 420, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/meyve-tabagi.jpg' },
+
+  // SOĞUK İÇECEKLER
+  { category_slug: 'soguk-icecekler', slug: 'ice-americano',     name_tr: 'Ice Americano',          name_en: 'Iced Americano',          price: 200, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Iced_Americano.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'ice-latte',         name_tr: 'Ice Latte',              name_en: 'Iced Latte',              price: 240, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/ice-latte.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'vanilyali-ice-latte',name_tr:'Vanilyalı Ice Latte',    name_en: 'Vanilla Iced Latte',      price: 240, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/vanilla-iced-latte.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'karamelli-ice-latte',name_tr:'Karamelli Ice Latte',    name_en: 'Caramel Iced Latte',      price: 240, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Karamelli-ice-latte.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'beyaz-cikolatali-ice-latte',name_tr:'Beyaz Çikolatalı Ice Latte',name_en:'White Chocolate Iced Latte',price:240,image_url:'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Iced_cholate-latte.jpg'},
+  { category_slug: 'soguk-icecekler', slug: 'cikolatali-ice-latte',name_tr:'Çikolatalı Ice Latte',  name_en: 'Chocolate Iced Latte',    price: 240, image_url: null },
+  { category_slug: 'soguk-icecekler', slug: 'bubble-tea-cilek',  name_tr: 'Bubble Tea (Çilek)',     name_en: 'Bubble Tea (Strawberry)', price: 260, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/bubble-tea-cilekli.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'bubble-tea-mango',  name_tr: 'Bubble Tea (Mango)',     name_en: 'Bubble Tea (Mango)',      price: 260, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/bubble-tea-mango.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'bubble-tea-seftali',name_tr: 'Bubble Tea (Şeftali)',   name_en: 'Bubble Tea (Peach)',      price: 260, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/peach-bubble-tea.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'bubble-tea-ananas', name_tr: 'Bubble Tea (Ananas)',    name_en: 'Bubble Tea (Pineapple)',  price: 260, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/pineapple-bubble-tea.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'bubble-tea-yaban-mersini',name_tr:'Bubble Tea (Yaban Mersini)',name_en:'Bubble Tea (Blueberry)',price:260,image_url:'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/bubble-tea-yaban-mersini.jpg'},
+  { category_slug: 'soguk-icecekler', slug: 'cola',              name_tr: 'Cola',                   name_en: 'Cola',                    price: 120, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Kola.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'cola-zero',         name_tr: 'Cola Zero',              name_en: 'Cola Zero',               price: 120, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Cola-zero.jpeg' },
+  { category_slug: 'soguk-icecekler', slug: 'fanta',             name_tr: 'Fanta',                  name_en: 'Fanta',                   price: 120, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Fanta.jpeg' },
+  { category_slug: 'soguk-icecekler', slug: 'sprite',            name_tr: 'Sprite',                 name_en: 'Sprite',                  price: 120, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Sprite.jpeg' },
+  { category_slug: 'soguk-icecekler', slug: 'sise-cola',         name_tr: 'Şişe Cola',              name_en: 'Bottled Cola',            price: 100, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/%C5%9Fi%C5%9Fe-kola.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'fuse-tea-limon',    name_tr: 'Fuse Tea (Limon)',        name_en: 'Fuse Tea (Lemon)',        price: 120, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Fuse-tea-limon.jpeg' },
+  { category_slug: 'soguk-icecekler', slug: 'fuse-tea-mango',    name_tr: 'Fuse Tea (Mango)',        name_en: 'Fuse Tea (Mango)',        price: 120, image_url: null },
+  { category_slug: 'soguk-icecekler', slug: 'fuse-tea-seftali',  name_tr: 'Fuse Tea (Şeftali)',      name_en: 'Fuse Tea (Peach)',        price: 120, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Fuse-tea-%C5%9Feftali.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'fuse-tea-karpuz',   name_tr: 'Fuse Tea (Karpuz)',       name_en: 'Fuse Tea (Watermelon)',   price: 120, image_url: null },
+  { category_slug: 'soguk-icecekler', slug: 'cappy-visne',       name_tr: 'Cappy Meyve Suyu (Vişne)',name_en: 'Cappy Juice (Cherry)',    price: 120, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Meyve-suyu-vi%C5%9Fne.jpeg' },
+  { category_slug: 'soguk-icecekler', slug: 'cappy-seftali',     name_tr: 'Cappy Meyve Suyu (Şeftali)',name_en:'Cappy Juice (Peach)',  price: 120, image_url: null },
+  { category_slug: 'soguk-icecekler', slug: 'cappy-karisik',     name_tr: 'Cappy Meyve Suyu (Karışık)',name_en:'Cappy Juice (Mixed)',  price: 120, image_url: null },
+  { category_slug: 'soguk-icecekler', slug: 'ayran',             name_tr: 'Ayran',                  name_en: 'Ayran (Yogurt Drink)',    price: 70,  image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/ayran.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'salgam',            name_tr: 'Şalgam',                 name_en: 'Turnip Juice',            price: 80,  image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/%C5%9Ealgam.jpeg' },
+  { category_slug: 'soguk-icecekler', slug: 'red-bull',          name_tr: 'Red Bull',               name_en: 'Red Bull',                price: 180, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Redbull.jpeg' },
+  { category_slug: 'soguk-icecekler', slug: 'schweppes',         name_tr: 'Schweppes',              name_en: 'Schweppes',               price: 120, image_url: null },
+  { category_slug: 'soguk-icecekler', slug: 'sade-soda',         name_tr: 'Sade Soda',              name_en: 'Plain Soda',              price: 60,  image_url: null },
+  { category_slug: 'soguk-icecekler', slug: 'limonlu-soda',      name_tr: 'Limonlu Soda',           name_en: 'Lemon Soda',              price: 70,  image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Limonlu-soda.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'elmali-soda',       name_tr: 'Elmalı Soda',            name_en: 'Apple Soda',              price: 70,  image_url: null },
+  { category_slug: 'soguk-icecekler', slug: 'visneli-soda',      name_tr: 'Vişneli Soda',           name_en: 'Cherry Soda',             price: 70,  image_url: null },
+  { category_slug: 'soguk-icecekler', slug: 'buyuk-su',          name_tr: 'Büyük Su',               name_en: 'Large Water',             price: 100, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Buyuk-su.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'kucuk-su',          name_tr: 'Küçük Su',               name_en: 'Small Water',             price: 50,  image_url: null },
+  { category_slug: 'soguk-icecekler', slug: 'taze-portakal-suyu',name_tr: 'Taze Sıkma Portakal Suyu',name_en:'Fresh Squeezed Orange Juice',price:260,image_url:'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Taze-s%C4%B1k%C4%B1lm%C4%B1%C5%9F-portakal-suyu.jpg'},
+  { category_slug: 'soguk-icecekler', slug: 'taze-nar-suyu',     name_tr: 'Taze Sıkma Nar Suyu',    name_en: 'Fresh Pomegranate Juice', price: 290, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/narsuyu.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'portakal-nar-karisimi',name_tr:'Portakal & Nar Karışımı',name_en:'Orange & Pomegranate Mix',price:280,image_url:'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Taze-nar-portakal-suyu.jpg'},
+  { category_slug: 'soguk-icecekler', slug: 'ev-yapimi-limonata',name_tr: 'Ev Yapımı Limonata',     name_en: 'Homemade Lemonade',       price: 240, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/limonata-ev-yap%C4%B1m%C4%B1.jpg' },
+  { category_slug: 'soguk-icecekler', slug: 'milkshake',         name_tr: 'Milkshake',              name_en: 'Milkshake (Various)',     price: 250, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Milkshake.jpg', description_tr: 'Çikolatalı, Vanilyalı, Çilekli, Böğürtlenli, Karamelli, Kavunlu, Karpuzlu, Muzlu', description_en: 'Chocolate, Vanilla, Strawberry, Blackberry, Caramel, Melon, Watermelon, Banana' },
+  { category_slug: 'soguk-icecekler', slug: 'frozen',            name_tr: 'Frozen',                 name_en: 'Frozen Smoothie',         price: 250, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Cilekli-Frozen.png', description_tr: 'Çilek, Muz, Kivi, Kavun, Karpuz, Mango, Elma, Limon, Böğürtlen, Frambuaz', description_en: 'Strawberry, Banana, Kiwi, Melon, Watermelon, Mango, Apple, Lemon, Blackberry, Raspberry' },
+  { category_slug: 'soguk-icecekler', slug: 'churchill',         name_tr: 'Churchill',              name_en: 'Churchill',               price: 160, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/CURC%C4%B0H%C4%B0L-500x333w.jpeg' },
+
+  // SICAK İÇECEKLER
+  { category_slug: 'sicak-icecekler', slug: 'cay',               name_tr: 'Çay',                    name_en: 'Turkish Tea',             price: 50,  image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/cay.jpg', is_featured: true },
+  { category_slug: 'sicak-icecekler', slug: 'turk-kahvesi',      name_tr: 'Türk Kahvesi',           name_en: 'Turkish Coffee',          price: 170, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Turk-Kahvesi.jpg', is_featured: true },
+  { category_slug: 'sicak-icecekler', slug: 'sutlu-turk-kahvesi',name_tr: 'Sütlü Türk Kahvesi',    name_en: 'Turkish Coffee with Milk',price: 180, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/sutlu-Turk-Kahvesi.jpg' },
+  { category_slug: 'sicak-icecekler', slug: 'dibek-kahvesi',     name_tr: 'Dibek Kahvesi',          name_en: 'Dibek Coffee',            price: 180, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Dibek-Kahvesi.jpg' },
+  { category_slug: 'sicak-icecekler', slug: 'damla-sakizli-kahve',name_tr:'Damla Sakızlı Türk Kahvesi',name_en:'Mastic Turkish Coffee',price:180,image_url:'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Damla-Sak%C4%B1z-Turk-Kahvesi.jpg'},
+  { category_slug: 'sicak-icecekler', slug: 'espresso',          name_tr: 'Espresso',               name_en: 'Espresso',                price: 180, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/espresso.jpg' },
+  { category_slug: 'sicak-icecekler', slug: 'double-espresso',   name_tr: 'Double Espresso',        name_en: 'Double Espresso',         price: 200, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/double-espresso.jpg' },
+  { category_slug: 'sicak-icecekler', slug: 'americano',         name_tr: 'Americano',              name_en: 'Americano',               price: 200, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Americano.jpg' },
+  { category_slug: 'sicak-icecekler', slug: 'latte',             name_tr: 'Latte',                  name_en: 'Latte',                   price: 230, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/latte.jpg' },
+  { category_slug: 'sicak-icecekler', slug: 'cappuccino',        name_tr: 'Cappuccino',             name_en: 'Cappuccino',              price: 230, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/cappucino.jpg' },
+  { category_slug: 'sicak-icecekler', slug: 'mocha',             name_tr: 'Mocha',                  name_en: 'Mocha',                   price: 230, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/mocha.jpg' },
+  { category_slug: 'sicak-icecekler', slug: 'chai-tea-latte',    name_tr: 'Chai Tea Latte',         name_en: 'Chai Tea Latte',          price: 230, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/chai-tea-latte.jpg' },
+  { category_slug: 'sicak-icecekler', slug: 'karamelli-macchiato',name_tr:'Karamelli Macchiato',    name_en: 'Caramel Macchiato',       price: 270, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/karamelli-machiato.jpg' },
+  { category_slug: 'sicak-icecekler', slug: 'filtre-kahve',      name_tr: 'Filtre Kahve',           name_en: 'Filter Coffee',           price: 200, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/GetResizeImage.jfif' },
+  { category_slug: 'sicak-icecekler', slug: 'nescafe-sade',      name_tr: 'Nescafe (Sade)',         name_en: 'Nescafé (Plain)',         price: 180, image_url: null },
+  { category_slug: 'sicak-icecekler', slug: 'nescafe-sutlu',     name_tr: 'Nescafe (Sütlü)',        name_en: 'Nescafé (With Milk)',     price: 200, image_url: null },
+  { category_slug: 'sicak-icecekler', slug: 'sicak-cikolata',    name_tr: 'Sıcak Çikolata',         name_en: 'Hot Chocolate',           price: 210, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/S%C4%B1cak-cikolata.jpg' },
+  { category_slug: 'sicak-icecekler', slug: 'sahlep',            name_tr: 'Sahlep',                 name_en: 'Sahlep',                  price: 200, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/sahlep.jpg' },
+  { category_slug: 'sicak-icecekler', slug: 'nane-limon',        name_tr: 'Nane Limon',             name_en: 'Mint Lemon Tea',          price: 210, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Nane-limon.jpg' },
+  { category_slug: 'sicak-icecekler', slug: 'ihlamur',           name_tr: 'Ihlamur',                name_en: 'Linden Tea',              price: 210, image_url: null },
+  { category_slug: 'sicak-icecekler', slug: 'ada-cayi',          name_tr: 'Ada Çayı',               name_en: 'Sage Tea',                price: 210, image_url: null },
+  { category_slug: 'sicak-icecekler', slug: 'orman-meyveli-cay', name_tr: 'Orman Meyveli Çay',      name_en: 'Forest Fruit Tea',        price: 210, image_url: null },
+  { category_slug: 'sicak-icecekler', slug: 'yesil-cay',         name_tr: 'Yeşil Çay',              name_en: 'Green Tea',               price: 210, image_url: null },
+  { category_slug: 'sicak-icecekler', slug: 'elma-cayi',         name_tr: 'Elma Çayı',              name_en: 'Apple Tea',               price: 210, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Elma-cay.jpg' },
+  { category_slug: 'sicak-icecekler', slug: 'papatya-cayi',      name_tr: 'Papatya Çayı',           name_en: 'Chamomile Tea',           price: 210, image_url: null },
+  { category_slug: 'sicak-icecekler', slug: 'kis-cayi',          name_tr: 'Kış Çayı',               name_en: 'Winter Tea',              price: 210, image_url: null },
+  { category_slug: 'sicak-icecekler', slug: 'nar-cayi',          name_tr: 'Nar Çayı',               name_en: 'Pomegranate Tea',         price: 210, image_url: null },
+
+  // KOKTEYLLER ALKOLSÜZ
+  { category_slug: 'kokteyller-alkolsuz', slug: 'mojito-alkolsuz', name_tr: 'Mojito (Alkolsüz)', name_en: 'Virgin Mojito', price: 250, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/mohito-alkolsuz.jpg' },
+  { category_slug: 'kokteyller-alkolsuz', slug: 'red-devil',       name_tr: 'Red Devil',         name_en: 'Red Devil Mocktail', price: 280, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Red-devil-alkolsuz.png' },
+
+  // BİRALAR
+  { category_slug: 'biralar', slug: 'efes-pilsen',           name_tr: 'Efes Pilsen (50 cl)',                 name_en: 'Efes Pilsen (50 cl)',          price: 300, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Efes-pilsen.jpeg' },
+  { category_slug: 'biralar', slug: 'efes-malt',             name_tr: 'Efes Malt (33/50 cl)',               name_en: 'Efes Malt (33/50 cl)',         price: 200, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Efes-malt.jpeg' },
+  { category_slug: 'biralar', slug: 'efes-gree',             name_tr: 'Efes Green (50 cl)',                 name_en: 'Efes Green (50 cl)',           price: 300, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Efes-Green.jpeg' },
+  { category_slug: 'biralar', slug: 'bomonti',               name_tr: 'Bomonti (50 cl)',                    name_en: 'Bomonti (50 cl)',              price: 320, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Bomonti-filtresiz.jpeg' },
+  { category_slug: 'biralar', slug: 'miller',                name_tr: 'Miller (33 cl)',                     name_en: 'Miller (33 cl)',               price: 300, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Miller.jpeg' },
+  { category_slug: 'biralar', slug: 'corona',                name_tr: 'Corona (33 cl)',                     name_en: 'Corona (33 cl)',               price: 300, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Corona.jpeg' },
+  { category_slug: 'biralar', slug: 'becks',                 name_tr: "Beck's (50 cl)",                     name_en: "Beck's (50 cl)",               price: 320, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Becks.jpeg' },
+  { category_slug: 'biralar', slug: 'bud',                   name_tr: 'Bud (50 cl)',                        name_en: 'Bud (50 cl)',                  price: 330, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Bud.jpeg' },
+  { category_slug: 'biralar', slug: 'stella-artois',         name_tr: 'Stella Artois (50 cl)',              name_en: 'Stella Artois (50 cl)',        price: 330, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Stella.jpeg' },
+  { category_slug: 'biralar', slug: 'tuborg-gold',           name_tr: 'Tuborg Gold (50 cl)',                name_en: 'Tuborg Gold (50 cl)',          price: 300, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Tuborg-gold.jpeg' },
+  { category_slug: 'biralar', slug: 'tuborg-ice',            name_tr: 'Tuborg Ice (33 cl)',                 name_en: 'Tuborg Ice (33 cl)',           price: 300, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/tuborg-ice.jpeg' },
+  { category_slug: 'biralar', slug: 'tuborg-filtresiz',      name_tr: 'Tuborg Filtresiz (50 cl)',           name_en: 'Tuborg Unfiltered (50 cl)',    price: 300, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Tuborg-Filtresiz.jpeg' },
+  { category_slug: 'biralar', slug: 'tuborg-amber',          name_tr: 'Tuborg Amber (50 cl)',               name_en: 'Tuborg Amber (50 cl)',         price: 300, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Tuborg-Amber.jpeg' },
+  { category_slug: 'biralar', slug: 'carlsberg',             name_tr: 'Carlsberg (50 cl)',                  name_en: 'Carlsberg (50 cl)',            price: 300, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Carlsberg.jpeg' },
+  { category_slug: 'biralar', slug: 'carlsberg-luna',        name_tr: 'Carlsberg Luna',                     name_en: 'Carlsberg Luna',               price: 300, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Carlsberg-Luna.jpeg' },
+  { category_slug: 'biralar', slug: 'blanc',                 name_tr: 'Blanc (33 cl)',                      name_en: 'Blanc (33 cl)',                price: 300, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Blanc.jpeg' },
+  { category_slug: 'biralar', slug: 'weihenstephaner',       name_tr: 'Weihenstephaner Weissbier (33 cl)',  name_en: 'Weihenstephaner Hefeweissbier (33 cl)', price: 350, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Weisbeer.jpeg' },
+
+  // CİN
+  { category_slug: 'cin', slug: 'gordons',   name_tr: "Gordon's (Tek/Doble)",  name_en: "Gordon's Gin (Single/Double)",   price: 400, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Gordons.jpeg' },
+  { category_slug: 'cin', slug: 'beefeater', name_tr: 'Beefeater (Tek/Doble)', name_en: 'Beefeater Gin (Single/Double)', price: 400, image_url: null },
+
+  // RAKILAR
+  { category_slug: 'rakilar', slug: 'yeni-raki',         name_tr: 'Yeni Rakı (Tek/Doble/35/50/70 cl)',         name_en: 'Yeni Raki (Single/Double/35/50/70 cl)',         price: 220, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Yeni-Rak%C4%B1.jpeg' },
+  { category_slug: 'rakilar', slug: 'tekirdag-altin',    name_tr: 'Tekirdağ Altın Seri (Tek/Doble/35/50/70 cl)',name_en: 'Tekirdağ Gold Series (Single/Double/35/50/70 cl)',price:300,image_url:'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Tekirda%C4%9F-Rak%C4%B1.jpeg'},
+  { category_slug: 'rakilar', slug: 'beylerbeyi-gobek',  name_tr: 'Beylerbeyi Göbek Rakısı (35/50/70 cl)',     name_en: 'Beylerbeyi Göbek Raki (35/50/70 cl)',          price: 300, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Beylerbeyi-gobek-rak%C4%B1.jpeg' },
+
+  // VOTKA
+  { category_slug: 'votka', slug: 'absolut-votka', name_tr: 'Absolut Votka (Tek/70 cl)',    name_en: 'Absolut Vodka (Single/70 cl)',   price: 400, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Absolut-Vodka.jpeg' },
+  { category_slug: 'votka', slug: 'smirnoff',      name_tr: 'Smirnoff (Tek/Doble)',         name_en: 'Smirnoff Vodka (Single/Double)', price: 350, image_url: null },
+
+  // ALKOLLÜ KOKTEYLLER
+  { category_slug: 'alkollu-icecekler-kokteyller', slug: 'mojito',          name_tr: 'Mojito',                            name_en: 'Mojito',                        price: 490,  image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/mojito.jpg', is_featured: true },
+  { category_slug: 'alkollu-icecekler-kokteyller', slug: 'pina-colada',     name_tr: 'Pina Colada',                       name_en: 'Piña Colada',                   price: 490,  image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Pina-colada.jpg' },
+  { category_slug: 'alkollu-icecekler-kokteyller', slug: 'tequila-sunrise', name_tr: 'Tequila Sunrise',                   name_en: 'Tequila Sunrise',               price: 490,  image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/tequila-sunrise.jpg' },
+  { category_slug: 'alkollu-icecekler-kokteyller', slug: 'cuba-libre',      name_tr: 'Cuba Libre',                        name_en: 'Cuba Libre',                    price: 490,  image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/cuba-libre.jpg' },
+  { category_slug: 'alkollu-icecekler-kokteyller', slug: 'dry-martini',     name_tr: 'Dry Martini',                       name_en: 'Dry Martini',                   price: 490,  image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Dry-Martini.jpg' },
+  { category_slug: 'alkollu-icecekler-kokteyller', slug: 'aperol-spritz',   name_tr: 'Aperol Spritz',                     name_en: 'Aperol Spritz',                 price: 550,  image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Aperol-Spritz.jpg' },
+  { category_slug: 'alkollu-icecekler-kokteyller', slug: 'tekila-olmeca',   name_tr: 'Tekila Olmeca (Shot/35/70 cl)',     name_en: 'Tequila Olmeca (Shot/35/70 cl)',price: 350,  image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Olmeca.jpeg' },
+  { category_slug: 'alkollu-icecekler-kokteyller', slug: 'cin-tonik',       name_tr: 'Cin Tonik',                         name_en: 'Gin & Tonic',                   price: 550,  image_url: null },
+  { category_slug: 'alkollu-icecekler-kokteyller', slug: 'tanqueray',       name_tr: 'Tanqueray',                         name_en: 'Tanqueray Gin',                 price: 1000, image_url: null },
+  { category_slug: 'alkollu-icecekler-kokteyller', slug: 'bottega-gold',    name_tr: 'Bottega Gold',                      name_en: 'Bottega Gold Prosecco',         price: 500,  image_url: null },
+  { category_slug: 'alkollu-icecekler-kokteyller', slug: 'moet-chandon',    name_tr: 'Moët & Chandon',                    name_en: 'Moët & Chandon Champagne',      price: 1000, image_url: null },
+  { category_slug: 'alkollu-icecekler-kokteyller', slug: 'martini',         name_tr: 'Martini',                           name_en: 'Martini Vermouth',              price: 1000, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Martini.jpeg' },
+
+  // VİSKİ
+  { category_slug: 'viski', slug: 'chivas-regal',        name_tr: 'Chivas Regal (Tek/Doble/35/50/70 cl)',            name_en: 'Chivas Regal Scotch (Single/Double/35/50/70 cl)',  price: 550, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Chivas-Regal.jpeg' },
+  { category_slug: 'viski', slug: 'jack-daniels',        name_tr: "Jack Daniel's (35/50/70 cl)",                     name_en: "Jack Daniel's Tennessee Whiskey (35/50/70 cl)",    price: 550, image_url: 'https://qrmenu.termessoshotel.com.tr/tema/genel/uploads/urunler/Jack-Daniels.jpeg' },
+  { category_slug: 'viski', slug: 'jw-red-label',        name_tr: 'Johnnie Walker Red Label (35/50/70 cl)',           name_en: 'Johnnie Walker Red Label (35/50/70 cl)',           price: 350, image_url: null },
+  { category_slug: 'viski', slug: 'jw-black-label',      name_tr: 'Johnnie Walker Black Label (35/50/70 cl)',         name_en: 'Johnnie Walker Black Label (35/50/70 cl)',         price: 350, image_url: null },
+
+  // ŞARAP
+  { category_slug: 'sarap', slug: 'kocabag-kapadokya-emir',      name_tr: 'Kocabağ Kapadokya Emir (Beyaz)',     name_en: 'Kocabağ Cappadocia Emir (White)',    price: 1600, image_url: null },
+  { category_slug: 'sarap', slug: 'kocabag-kapadokya-roze',      name_tr: 'Kocabağ Kapadokya Roze',             name_en: 'Kocabağ Cappadocia Rosé',           price: 2400, image_url: null },
+  { category_slug: 'sarap', slug: 'kocabag-kapadokya-blush',     name_tr: 'Kocabağ Kapadokya Blush',            name_en: 'Kocabağ Cappadocia Blush',          price: 2400, image_url: null },
+  { category_slug: 'sarap', slug: 'kadeh-sarap',                 name_tr: 'Kadeh Şarap (Kırmızı/Beyaz)',        name_en: 'Glass Wine (Red/White)',            price: 350,  image_url: null },
+  { category_slug: 'sarap', slug: 'kocabag-gravite',             name_tr: 'Kocabağ Gravite (Kırmızı)',          name_en: 'Kocabağ Gravite (Red)',             price: 3900, image_url: null },
+  { category_slug: 'sarap', slug: 'kocabag-kapadokya-okuzgozu',  name_tr: 'Kocabağ Kapadokya Öküzgözü (Kırmızı)', name_en: 'Kocabağ Cappadocia Öküzgözü (Red)', price: 2200, image_url: null },
+  { category_slug: 'sarap', slug: 'kocabag-kapadokya-kalecik',   name_tr: 'Kocabağ Kapadokya Kalecik Karası (Kırmızı)', name_en: 'Kocabağ Cappadocia Kalecik Karası (Red)', price: 2200, image_url: null },
+  { category_slug: 'sarap', slug: 'kocabag-kapadokya-merlot',    name_tr: 'Kocabağ Kapadokya Merlot (Kırmızı)',name_en: 'Kocabağ Cappadocia Merlot (Red)',   price: 2200, image_url: null },
+  { category_slug: 'sarap', slug: 'kocabag-velvet',              name_tr: 'Kocabağ Velvet Öküzgözü (Kırmızı)', name_en: 'Kocabağ Velvet Öküzgözü (Red)',    price: 1600, image_url: null },
+  { category_slug: 'sarap', slug: 'kocabag-senevi',              name_tr: 'Kocabağ Senevi Öküzgözü (Kırmızı)', name_en: 'Kocabağ Senevi Öküzgözü (Red)',    price: 1500, image_url: null },
+  { category_slug: 'sarap', slug: 'kocabag-cabernet',            name_tr: 'Kocabağ Cabernet Sauvignon (Kırmızı)',name_en:'Kocabağ Cabernet Sauvignon (Red)', price: 2300, image_url: null },
+  { category_slug: 'sarap', slug: 'kocabag-emir',                name_tr: 'Kocabağ Emir (Beyaz)',               name_en: 'Kocabağ Emir (White)',              price: 1600, image_url: null },
+  { category_slug: 'sarap', slug: 'kocabag-velvet-emir',         name_tr: 'Kocabağ Velvet Emir (Beyaz)',        name_en: 'Kocabağ Velvet Emir (White)',       price: 1600, image_url: null },
+  { category_slug: 'sarap', slug: 'kocabag-senevi-emir',         name_tr: 'Kocabağ Senevi Emir (Beyaz)',        name_en: 'Kocabağ Senevi Emir (White)',       price: 1600, image_url: null },
+];

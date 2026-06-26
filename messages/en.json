@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "menu": "Menu",
+    "home": "Home",
+    "back": "Go Back"
+  },
+  "home": {
+    "title": "Termessos Hotel Menu",
+    "subtitle": "Göreme / Nevşehir",
+    "hours": "07:00 – 00:00",
+    "welcome": "What Would You Like?",
+    "food": "Food",
+    "drinks": "Beverages",
+    "search": "Search...",
+    "noResults": "No results found",
+    "featured": "Featured",
+    "allCategories": "All Categories"
+  },
+  "category": {
+    "backToMenu": "Back to Menu",
+    "items": "items"
+  },
+  "item": {
+    "price": "Price",
+    "addToCart": "Add to Order",
+    "backToCategory": "Back to Category"
+  },
+  "footer": {
+    "prices": "All prices are in Turkish Lira (TL) and include VAT.",
+    "allergy": "If you have any food allergies, please inform your server before ordering.",
+    "copyright": "© 2026 Termessos Hotel. All rights reserved."
+  },
+  "admin": {
+    "title": "Termessos Admin Panel",
+    "dashboard": "Dashboard",
+    "categories": "Categories",
+    "items": "Menu Items",
+    "logout": "Logout",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "name_tr": "Name (Turkish)",
+    "name_en": "Name (English)",
+    "description_tr": "Description (Turkish)",
+    "description_en": "Description (English)",
+    "price": "Price (TL)",
+    "image_url": "Image URL",
+    "is_active": "Active",
+    "is_featured": "Featured",
+    "is_drink": "Drink Category",
+    "display_order": "Display Order",
+    "category": "Category",
+    "totalCategories": "Total Categories",
+    "totalItems": "Total Items",
+    "activeItems": "Active Items"
+  },
+  "login": {
+    "title": "Admin Login",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Sign In",
+    "error": "Invalid username or password"
+  }
+}
