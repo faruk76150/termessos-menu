@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabaseAdmin } from '@/lib/supabase';
+import { supabaseClient } from '@/lib/supabase';
 import { CATEGORIES, MENU_ITEMS } from '@/lib/menuData';
 
-const db = () => supabaseAdmin();
+const db = () => supabaseClient();
 
 export async function GET(req: NextRequest) {
   const categoryId = req.nextUrl.searchParams.get('category_id');

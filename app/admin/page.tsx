@@ -1,11 +1,11 @@
-import { supabaseAdmin } from '@/lib/supabase';
+import { supabaseClient } from '@/lib/supabase';
 import { CATEGORIES, MENU_ITEMS } from '@/lib/menuData';
 import Link from 'next/link';
 import { List, UtensilsCrossed, CheckCircle } from 'lucide-react';
 
 async function getStats() {
   try {
-    const db = supabaseAdmin();
+    const db = supabaseClient();
     const [{ count: cats }, { count: items }] = await Promise.all([
       db.from('categories').select('*', { count: 'exact', head: true }).eq('is_active', true),
       db.from('menu_items').select('*', { count: 'exact', head: true }).eq('is_active', true),

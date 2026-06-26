@@ -1,22 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { signToken, comparePassword } from '@/lib/auth';
-
-const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin';
-const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH || '';
+import { supabaseClient } from '@/lib/supabase';
 
 export async function POST(req: NextRequest) {
   const { username, password } = await req.json();
 
-  if (username !== ADMIN_USERNAME) {
+  const { data: admin } = await supabaseClient()
+    .from('admins')
+    .select('password_hash')
+    .eq('username', username)
+    .single();
+
+  if (!admin) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  // Fallback for plain-text ADMIN_PASSWORD (dev only)
-  const plain = process.env.ADMIN_PASSWORD;
-  const valid = ADMIN_PASSWORD_HASH
-    ? await comparePassword(password, ADMIN_PASSWORD_HASH)
-    : plain === password;
-
+  const valid = await comparePassword(password, admin.password_hash);
   if (!valid) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
