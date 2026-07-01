@@ -8,6 +8,7 @@ import CategoryNav from './CategoryNav';
 import ItemsGrid from './ItemsGrid';
 import Footer from './Footer';
 import { getLocalizedSlug, getDbSlug } from '@/lib/slugs';
+import type { SiteSettings } from '@/lib/settings';
 import type { Category, MenuItem } from '@/lib/types';
 
 interface Props {
@@ -15,7 +16,7 @@ interface Props {
   items: MenuItem[];
   initialSlug: string;
   locale: string;
-  settings: any;
+  settings: SiteSettings;
   translations: {
     backToMenu: string;
     items: string;

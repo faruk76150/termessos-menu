@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, useCallback, useRef } from 'react';
+import Image from 'next/image';
 import { Plus, Pencil, Trash2, X, Check, GripVertical } from 'lucide-react';
 
 interface Category {
@@ -279,10 +280,12 @@ export default function CategoriesAdmin() {
                 </div>
                 {modal.data.image_url && (
                   <div className="relative w-full h-24 rounded-lg overflow-hidden border border-stone-200 bg-stone-50">
-                    <img
+                    <Image
                       src={modal.data.image_url}
                       alt="Önizleme"
-                      className="w-full h-full object-cover"
+                      fill
+                      unoptimized
+                      className="object-cover"
                     />
                     <button
                       type="button"

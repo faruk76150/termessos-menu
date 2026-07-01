@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
     const storagePath = `${folder}/${timestamp}_${cleanName}`;
 
     // Upload to Supabase Storage bucket using service role client
-    const { data, error } = await supabaseAdmin().storage
+    const { error } = await supabaseAdmin().storage
       .from('menu-images')
       .upload(storagePath, buffer, {
         contentType: file.type,
@@ -38,8 +38,9 @@ export async function POST(req: NextRequest) {
       .getPublicUrl(storagePath);
 
     return NextResponse.json({ url: publicUrlData.publicUrl });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error('File upload route error:', err);
-    return NextResponse.json({ error: err.message || 'Dosya yükleme hatası.' }, { status: 500 });
+    const message = err instanceof Error ? err.message : 'Dosya yükleme hatası.';
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
