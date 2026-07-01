@@ -18,10 +18,7 @@ export default function CategoriesAdmin() {
   const [saving, setSaving] = useState(false);
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
-
-  // Drag state
-  const dragIdx = useRef<number | null>(null);
-  const [dragOverIdx, setDragOverIdx] = useState<number | null>(null);
+  const [uploading, setUploading] = useState(false);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -32,6 +29,33 @@ export default function CategoriesAdmin() {
   }, []);
 
   useEffect(() => { load(); }, [load]);
+
+  async function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploading(true);
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('folder', 'categories');
+
+    try {
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+      if (!res.ok) throw new Error('Upload failed');
+      const data = await res.json();
+      if (data.url) {
+        setField('image_url', data.url);
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Görsel yüklenirken bir hata oluştu.');
+    } finally {
+      setUploading(false);
+    }
+  }
 
   // ── Drag handlers ──────────────────────────────────────────────────────────
   function onDragStart(idx: number) {
@@ -74,6 +98,9 @@ export default function CategoriesAdmin() {
   }
 
   // ── CRUD ───────────────────────────────────────────────────────────────────
+  const dragIdx = useRef<number | null>(null);
+  const [dragOverIdx, setDragOverIdx] = useState<number | null>(null);
+
   function openNew() { setModal({ open: true, data: { ...empty, display_order: categories.length + 1 } }); }
   function openEdit(c: Category) { setModal({ open: true, data: { ...c } }); }
   function closeModal() { setModal({ open: false, data: {} }); }
@@ -106,7 +133,7 @@ export default function CategoriesAdmin() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-display font-bold text-stone-800">Kategoriler</h1>
-          <p className="text-stone-400 text-sm mt-0.5 flex items-center gap-2">
+          <p className="text-stone-600 text-sm mt-0.5 flex items-center gap-2">
             {categories.length} kategori
             {saveStatus === 'saving' && <span className="text-amber-500 text-xs">● Kaydediliyor...</span>}
             {saveStatus === 'saved' && <span className="text-green-500 text-xs">✓ Sıralama kaydedildi</span>}
@@ -121,7 +148,7 @@ export default function CategoriesAdmin() {
         </button>
       </div>
 
-      <p className="text-xs text-stone-400 mb-3 flex items-center gap-1">
+      <p className="text-xs text-stone-500 mb-3 flex items-center gap-1">
         <GripVertical size={12} /> Satırları sürükleyip bırakarak sıralamayı değiştirebilirsiniz
       </p>
 
@@ -134,7 +161,7 @@ export default function CategoriesAdmin() {
               <tr>
                 <th className="w-8 px-2 py-3" />
                 {['#', 'Ad (TR)', 'Ad (EN)', 'İçecek', 'Aktif', 'İşlem'].map((h) => (
-                  <th key={h} className="text-left px-4 py-3 text-xs font-semibold text-stone-500 uppercase">{h}</th>
+                  <th key={h} className="text-left px-4 py-3 text-xs font-semibold text-stone-600 uppercase">{h}</th>
                 ))}
               </tr>
             </thead>
@@ -151,12 +178,12 @@ export default function CategoriesAdmin() {
                     dragOverIdx === idx ? 'bg-brand-50 border-t-2 border-brand-400' : 'hover:bg-stone-50'
                   } ${dragIdx.current === idx ? 'opacity-40' : ''}`}
                 >
-                  <td className="px-2 py-3 text-stone-300 cursor-grab active:cursor-grabbing">
+                  <td className="px-2 py-3 text-stone-400 cursor-grab active:cursor-grabbing">
                     <GripVertical size={16} />
                   </td>
-                  <td className="px-4 py-3 text-stone-400 text-xs w-8">{c.display_order}</td>
+                  <td className="px-4 py-3 text-stone-600 font-medium text-xs w-8">{c.display_order}</td>
                   <td className="px-4 py-3 font-medium text-stone-800">{c.name_tr}</td>
-                  <td className="px-4 py-3 text-stone-500">{c.name_en}</td>
+                  <td className="px-4 py-3 text-stone-600">{c.name_en}</td>
                   <td className="px-4 py-3">
                     {c.is_drink
                       ? <Check size={14} className="text-green-500" />
@@ -202,22 +229,71 @@ export default function CategoriesAdmin() {
               <button onClick={closeModal} className="p-1 hover:bg-stone-100 rounded-lg"><X size={18} /></button>
             </div>
             <div className="space-y-3">
-              {[
-                ['name_tr', 'Ad (Türkçe)'],
-                ['name_en', 'Ad (İngilizce)'],
-                ['slug', 'Slug'],
-                ['image_url', 'Görsel URL'],
-              ].map(([k, l]) => (
-                <div key={k}>
-                  <label className="block text-xs font-medium text-stone-600 mb-1">{l}</label>
+              <div>
+                <label className="block text-xs font-medium text-stone-600 mb-1">Ad (Türkçe)</label>
+                <input
+                  type="text"
+                  value={modal.data.name_tr ?? ''}
+                  onChange={(e) => setField('name_tr', e.target.value)}
+                  className="w-full border border-stone-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-stone-600 mb-1">Ad (İngilizce)</label>
+                <input
+                  type="text"
+                  value={modal.data.name_en ?? ''}
+                  onChange={(e) => setField('name_en', e.target.value)}
+                  className="w-full border border-stone-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-stone-600 mb-1">Slug</label>
+                <input
+                  type="text"
+                  value={modal.data.slug ?? ''}
+                  onChange={(e) => setField('slug', e.target.value)}
+                  className="w-full border border-stone-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-stone-600 mb-1">Görsel (Upload veya URL)</label>
+                <div className="flex gap-2 mb-2">
                   <input
                     type="text"
-                    value={String(modal.data[k as keyof Category] ?? '')}
-                    onChange={(e) => setField(k as keyof Omit<Category, 'id'>, e.target.value)}
-                    className="w-full border border-stone-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                    placeholder="https://..."
+                    value={modal.data.image_url ?? ''}
+                    onChange={(e) => setField('image_url', e.target.value)}
+                    className="flex-1 border border-stone-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                   />
+                  <label className="bg-stone-100 hover:bg-stone-200 border border-stone-300 rounded-lg px-3 py-1.5 text-xs font-semibold cursor-pointer flex items-center justify-center text-stone-700 select-none">
+                    {uploading ? 'Yükleniyor...' : 'Görsel Seç'}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      disabled={uploading}
+                      className="hidden"
+                    />
+                  </label>
                 </div>
-              ))}
+                {modal.data.image_url && (
+                  <div className="relative w-full h-24 rounded-lg overflow-hidden border border-stone-200 bg-stone-50">
+                    <img
+                      src={modal.data.image_url}
+                      alt="Önizleme"
+                      className="w-full h-full object-cover"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setField('image_url', '')}
+                      className="absolute top-1.5 right-1.5 bg-black/70 text-white rounded-full p-1 hover:bg-black transition-colors"
+                    >
+                      <X size={12} />
+                    </button>
+                  </div>
+                )}
+              </div>
               <div className="flex gap-6 pt-1">
                 {([['is_drink', 'İçecek'], ['is_active', 'Aktif']] as const).map(([k, l]) => (
                   <label key={k} className="flex items-center gap-2 cursor-pointer">
@@ -238,7 +314,7 @@ export default function CategoriesAdmin() {
               </button>
               <button
                 onClick={handleSave}
-                disabled={saving}
+                disabled={saving || uploading}
                 className="flex-1 bg-brand-700 text-white py-2 rounded-xl text-sm font-semibold hover:bg-brand-800 disabled:opacity-60"
               >
                 {saving ? 'Kaydediliyor...' : 'Kaydet'}

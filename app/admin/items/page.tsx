@@ -24,6 +24,34 @@ export default function ItemsAdmin() {
   const [saving, setSaving] = useState(false);
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
+  const [uploading, setUploading] = useState(false);
+
+  async function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploading(true);
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('folder', 'items');
+
+    try {
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+      if (!res.ok) throw new Error('Upload failed');
+      const data = await res.json();
+      if (data.url) {
+        setField('image_url', data.url);
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Görsel yüklenirken bir hata oluştu.');
+    } finally {
+      setUploading(false);
+    }
+  }
 
   // Drag state
   const dragIdx = useRef<number | null>(null);
@@ -131,7 +159,7 @@ export default function ItemsAdmin() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-display font-bold text-stone-800">Ürünler</h1>
-          <p className="text-stone-400 text-sm mt-0.5 flex items-center gap-2">
+          <p className="text-stone-600 text-sm mt-0.5 flex items-center gap-2">
             {filtered.length} / {items.length} ürün
             {saveStatus === 'saving' && <span className="text-amber-500 text-xs">● Kaydediliyor...</span>}
             {saveStatus === 'saved' && <span className="text-green-500 text-xs">✓ Sıralama kaydedildi</span>}
@@ -163,7 +191,7 @@ export default function ItemsAdmin() {
       </div>
 
       {canDrag && (
-        <p className="text-xs text-stone-400 mb-3 flex items-center gap-1">
+        <p className="text-xs text-stone-500 mb-3 flex items-center gap-1">
           <GripVertical size={12} /> Sürükleyip bırakarak sıralamayı değiştirebilirsiniz
         </p>
       )}
@@ -177,7 +205,7 @@ export default function ItemsAdmin() {
               <tr>
                 {canDrag && <th className="w-8 px-2 py-3" />}
                 {['Kategori', 'Ad (TR)', 'Ad (EN)', 'Fiyat', 'Aktif', 'İşlem'].map((h) => (
-                  <th key={h} className="text-left px-4 py-3 text-xs font-semibold text-stone-500 uppercase">{h}</th>
+                  <th key={h} className="text-left px-4 py-3 text-xs font-semibold text-stone-600 uppercase">{h}</th>
                 ))}
               </tr>
             </thead>
@@ -195,13 +223,13 @@ export default function ItemsAdmin() {
                   } ${canDrag && dragIdx.current === idx ? 'opacity-40' : ''}`}
                 >
                   {canDrag && (
-                    <td className="px-2 py-2.5 text-stone-300 cursor-grab active:cursor-grabbing">
+                    <td className="px-2 py-2.5 text-stone-400 cursor-grab active:cursor-grabbing">
                       <GripVertical size={16} />
                     </td>
                   )}
-                  <td className="px-4 py-2.5 text-xs text-stone-400">{getCatName(item.category_id)}</td>
+                  <td className="px-4 py-2.5 font-medium text-stone-600 text-xs">{getCatName(item.category_id)}</td>
                   <td className="px-4 py-2.5 font-medium text-stone-800">{item.name_tr}</td>
-                  <td className="px-4 py-2.5 text-stone-500">{item.name_en}</td>
+                  <td className="px-4 py-2.5 text-stone-600">{item.name_en}</td>
                   <td className="px-4 py-2.5 text-brand-700 font-semibold whitespace-nowrap">
                     {item.price.toLocaleString('tr-TR')} ₺
                   </td>
@@ -248,24 +276,87 @@ export default function ItemsAdmin() {
                   {categories.map((c) => <option key={c.id} value={c.id}>{c.name_tr}</option>)}
                 </select>
               </div>
-              {[
-                ['name_tr', 'Ad (Türkçe)'],
-                ['name_en', 'Ad (İngilizce)'],
-                ['slug', 'Slug'],
-                ['description_tr', 'Açıklama (Türkçe)'],
-                ['description_en', 'Açıklama (İngilizce)'],
-                ['image_url', 'Görsel URL'],
-              ].map(([k, l]) => (
-                <div key={k}>
-                  <label className="block text-xs font-medium text-stone-600 mb-1">{l}</label>
+              <div>
+                <label className="block text-xs font-medium text-stone-600 mb-1">Ad (Türkçe)</label>
+                <input
+                  type="text"
+                  value={modal.data.name_tr ?? ''}
+                  onChange={(e) => setField('name_tr', e.target.value)}
+                  className="w-full border border-stone-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-stone-600 mb-1">Ad (İngilizce)</label>
+                <input
+                  type="text"
+                  value={modal.data.name_en ?? ''}
+                  onChange={(e) => setField('name_en', e.target.value)}
+                  className="w-full border border-stone-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-stone-600 mb-1">Slug</label>
+                <input
+                  type="text"
+                  value={modal.data.slug ?? ''}
+                  onChange={(e) => setField('slug', e.target.value)}
+                  className="w-full border border-stone-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-stone-600 mb-1">Açıklama (Türkçe)</label>
+                <textarea
+                  value={modal.data.description_tr ?? ''}
+                  onChange={(e) => setField('description_tr', e.target.value)}
+                  className="w-full border border-stone-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 min-h-[60px]"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-stone-600 mb-1">Açıklama (İngilizce)</label>
+                <textarea
+                  value={modal.data.description_en ?? ''}
+                  onChange={(e) => setField('description_en', e.target.value)}
+                  className="w-full border border-stone-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 min-h-[60px]"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-stone-600 mb-1">Görsel (Upload veya URL)</label>
+                <div className="flex gap-2 mb-2">
                   <input
                     type="text"
-                    value={String(modal.data[k as keyof MenuItem] ?? '')}
-                    onChange={(e) => setField(k as keyof MenuItem, e.target.value)}
-                    className="w-full border border-stone-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                    placeholder="https://..."
+                    value={modal.data.image_url ?? ''}
+                    onChange={(e) => setField('image_url', e.target.value)}
+                    className="flex-1 border border-stone-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                   />
+                  <label className="bg-stone-100 hover:bg-stone-200 border border-stone-300 rounded-lg px-3 py-1.5 text-xs font-semibold cursor-pointer flex items-center justify-center text-stone-700 select-none">
+                    {uploading ? 'Yükleniyor...' : 'Görsel Seç'}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      disabled={uploading}
+                      className="hidden"
+                    />
+                  </label>
                 </div>
-              ))}
+                {modal.data.image_url && (
+                  <div className="relative w-full h-24 rounded-lg overflow-hidden border border-stone-200 bg-stone-50">
+                    <img
+                      src={modal.data.image_url}
+                      alt="Önizleme"
+                      className="w-full h-full object-cover"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setField('image_url', '')}
+                      className="absolute top-1.5 right-1.5 bg-black/70 text-white rounded-full p-1 hover:bg-black transition-colors"
+                    >
+                      <X size={12} />
+                    </button>
+                  </div>
+                )}
+              </div>
               <div>
                 <label className="block text-xs font-medium text-stone-600 mb-1">Fiyat (₺)</label>
                 <input
@@ -285,7 +376,7 @@ export default function ItemsAdmin() {
             </div>
             <div className="flex gap-3 mt-6">
               <button onClick={closeModal} className="flex-1 border border-stone-300 text-stone-700 py-2 rounded-xl text-sm font-medium hover:bg-stone-50">İptal</button>
-              <button onClick={handleSave} disabled={saving} className="flex-1 bg-brand-700 text-white py-2 rounded-xl text-sm font-semibold hover:bg-brand-800 disabled:opacity-60">
+              <button onClick={handleSave} disabled={saving || uploading} className="flex-1 bg-brand-700 text-white py-2 rounded-xl text-sm font-semibold hover:bg-brand-800 disabled:opacity-60">
                 {saving ? 'Kaydediliyor...' : 'Kaydet'}
               </button>
             </div>

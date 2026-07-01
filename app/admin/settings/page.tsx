@@ -42,7 +42,7 @@ export default function SettingsAdmin() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-display font-bold text-stone-800">Ayarlar</h1>
-          <p className="text-stone-400 text-sm mt-0.5">Restoran bilgileri ve menü etiketleri</p>
+          <p className="text-stone-600 text-sm mt-0.5">Restoran bilgileri ve menü etiketleri</p>
         </div>
         <button
           onClick={handleSave}
@@ -60,7 +60,7 @@ export default function SettingsAdmin() {
         <div className="bg-white rounded-2xl shadow-sm p-6 space-y-4">
           {FIELDS.map(({ key, label }) => (
             <div key={key}>
-              <label className="block text-xs font-semibold text-stone-500 uppercase tracking-wide mb-1">{label}</label>
+              <label className="block text-xs font-semibold text-stone-600 uppercase tracking-wide mb-1">{label}</label>
               <input
                 type="text"
                 value={values[key] ?? ''}

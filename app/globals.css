@@ -2,24 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
-
-:root {
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
-}
-
 * { box-sizing: border-box; }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-body), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: #0f0f0f;
   color: #f0ece4;
 }
 
 h1, h2, h3, .font-display {
-  font-family: var(--font-display);
+  font-family: var(--font-display), Georgia, serif;
 }
 
 @layer utilities {
@@ -37,4 +30,75 @@ h1, h2, h3, .font-display {
   }
   .scrollbar-hide::-webkit-scrollbar { display: none; }
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  @keyframes scaleUp {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.25s ease-out forwards;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-scale-up {
+    animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Custom scrollbar style for CategoryNav on desktop */
+  .category-nav-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .category-nav-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .category-nav-scrollbar::-webkit-scrollbar {
+      display: block;
+      height: 3px;
+    }
+    .category-nav-scrollbar::-webkit-scrollbar-track {
+      background: #0f0f0f;
+    }
+    .category-nav-scrollbar::-webkit-scrollbar-thumb {
+      background: #222;
+      border-radius: 9999px;
+      transition: background 0.2s;
+    }
+    .category-nav-scrollbar:hover::-webkit-scrollbar-thumb {
+      background: rgba(212, 168, 67, 0.3);
+    }
+    .category-nav-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(212, 168, 67, 0.8) !important;
+    }
+    .category-nav-scrollbar {
+      -ms-overflow-style: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #222 #0f0f0f;
+    }
+    .category-nav-scrollbar:hover {
+      scrollbar-color: rgba(212, 168, 67, 0.3) #0f0f0f;
+    }
+  }
 }
+
+/* Ensure inputs, select lists, and option dropdowns render with dark text */
+.admin-area input,
+.admin-area select,
+.admin-area textarea,
+.admin-area option,
+select,
+option {
+  color: #1c1917 !important;
+}
+

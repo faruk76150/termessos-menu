@@ -36,20 +36,20 @@ export default function ItemDetailModal({ item, locale, onClose }: Props) {
       onClick={onClose}
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm animate-fade-in" />
 
       {/* Panel */}
       <div
-        className="relative bg-[#141414] border border-[#2a2a2a] w-full sm:max-w-md rounded-t-3xl sm:rounded-2xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col"
+        className="relative bg-[#141414] border border-[#2a2a2a] w-full sm:max-w-md rounded-t-3xl sm:rounded-2xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col animate-slide-up sm:animate-scale-up"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center bg-[#0f0f0f]/80 border border-[#333] text-[#888] hover:text-[#f0ece4] rounded-full transition-colors"
+          className="absolute top-4 right-4 z-10 w-11 h-11 flex items-center justify-center bg-[#0f0f0f]/90 border border-[#333] text-[#999] hover:text-[#f0ece4] rounded-full transition-all duration-200 active:scale-95 shadow-md"
           aria-label="Close"
         >
-          <X size={14} />
+          <X size={20} />
         </button>
 
         {/* Image */}

@@ -46,3 +46,18 @@ CREATE INDEX IF NOT EXISTS idx_categories_slug ON categories(slug);
 CREATE INDEX IF NOT EXISTS idx_items_category ON menu_items(category_id);
 CREATE INDEX IF NOT EXISTS idx_items_slug ON menu_items(slug);
 CREATE INDEX IF NOT EXISTS idx_items_active ON menu_items(is_active);
+
+-- Admins table for auth-role mapping by Supabase Auth User ID
+DROP TABLE IF EXISTS public.admins CASCADE;
+CREATE TABLE public.admins (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid NOT NULL UNIQUE, -- References auth.users(id)
+  created_at timestamptz DEFAULT now()
+);
+
+ALTER TABLE public.admins ENABLE ROW LEVEL SECURITY;
+
+-- Allow anyone to check admin mappings (read-only), but only service role to modify
+CREATE POLICY "Public read admins" ON public.admins FOR SELECT USING (true);
+CREATE POLICY "Service write admins" ON public.admins FOR ALL USING (auth.role() = 'service_role');
+

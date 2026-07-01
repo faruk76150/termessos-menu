@@ -10,7 +10,7 @@ const nav = [
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-stone-100 flex">
+    <div className="min-h-screen bg-stone-100 flex admin-area text-stone-900">
       {/* Sidebar */}
       <aside className="w-56 bg-stone-900 text-stone-200 flex flex-col">
         <div className="px-5 py-6 border-b border-stone-800">
@@ -18,7 +18,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <div className="w-8 h-8 rounded-full bg-brand-600 flex items-center justify-center text-white font-bold text-sm font-display">T</div>
             <div>
               <p className="font-display font-semibold text-sm">Termessos</p>
-              <p className="text-xs text-stone-500">Admin Paneli</p>
+              <p className="text-xs text-stone-400">Admin Paneli</p>
             </div>
           </div>
         </div>
@@ -28,7 +28,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <Link
               key={href}
               href={href}
-              className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm hover:bg-stone-800 transition text-stone-300 hover:text-white"
+              className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm hover:bg-stone-800 transition text-stone-200 hover:text-white"
             >
               <Icon size={16} />
               {label}
@@ -40,14 +40,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <Link
             href="/tr"
             target="_blank"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white hover:bg-stone-800 transition"
+            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-stone-300 hover:text-white hover:bg-stone-800 transition"
           >
             <ExternalLink size={16} />
             Menüyü Görüntüle
           </Link>
           <Link
             href="/api/auth?logout=1"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-red-400 hover:bg-stone-800 transition"
+            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-stone-300 hover:text-red-400 hover:bg-stone-800 transition"
           >
             <LogOut size={16} />
             Çıkış Yap

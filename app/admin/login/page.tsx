@@ -40,10 +40,11 @@ export default function AdminLogin() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-stone-700 mb-1">
-              Kullanıcı Adı
+              E-posta
             </label>
             <input
-              type="text"
+              type="email"
+              placeholder="admin@termessoshotel.com.tr"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required

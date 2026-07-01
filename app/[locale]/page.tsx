@@ -81,19 +81,19 @@ export default async function MenuHome({
         </div>
 
         {/* Info strip pinned to bottom of hero */}
-        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-5 px-4 pb-4 text-xs text-[#888]">
-          <span className="flex items-center gap-1.5">
-            <MapPin size={11} className="text-[#D4A843]" />
+        <div className="absolute bottom-0 left-0 right-0 flex flex-wrap items-center justify-center gap-x-5 gap-y-2.5 px-4 pb-4 text-xs text-[#d8d4cf] font-medium drop-shadow-md">
+          <span className="flex items-center gap-1.5 shrink-0">
+            <MapPin size={13} className="text-[#D4A843]" />
             {settings.restaurant_location}
           </span>
-          <span className="w-px h-3 bg-[#333]" />
-          <span className="flex items-center gap-1.5">
-            <Clock size={11} className="text-[#D4A843]" />
+          <span className="hidden sm:inline w-px h-3 bg-[#D4A843]/30 shrink-0" />
+          <span className="flex items-center gap-1.5 shrink-0">
+            <Clock size={13} className="text-[#D4A843]" />
             {settings.restaurant_hours}
           </span>
-          <span className="w-px h-3 bg-[#333]" />
-          <a href={phoneHref} className="flex items-center gap-1.5 text-[#888] hover:text-[#D4A843] transition-colors">
-            <Phone size={11} className="text-[#D4A843]" />
+          <span className="hidden sm:inline w-px h-3 bg-[#D4A843]/30 shrink-0" />
+          <a href={phoneHref} className="flex items-center gap-1.5 text-[#d8d4cf] hover:text-[#D4A843] transition-colors shrink-0">
+            <Phone size={13} className="text-[#D4A843]" />
             {settings.restaurant_phone}
           </a>
         </div>

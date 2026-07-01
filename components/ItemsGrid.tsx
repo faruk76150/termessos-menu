@@ -29,7 +29,7 @@ export default function ItemsGrid({ items, locale }: Props) {
               className="group flex flex-col bg-[#181818] border border-[#242424] hover:border-[#D4A843]/30 rounded-xl overflow-hidden text-left cursor-pointer active:scale-[0.98] transition-all duration-200"
             >
               {/* Image */}
-              <div className="relative w-full aspect-square bg-[#1e1e1e] shrink-0">
+              <div className="relative w-full aspect-[4/3] bg-[#1e1e1e] shrink-0">
                 {img ? (
                   <Image
                     src={img}

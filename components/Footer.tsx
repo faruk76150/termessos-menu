@@ -12,7 +12,7 @@ export default function Footer() {
         </div>
         <p className="text-[#444] text-xs leading-relaxed">{t('prices')}</p>
         <p className="text-[#444] text-xs leading-relaxed mt-1">{t('allergy')}</p>
-        <p className="text-[#2e2e2e] text-[11px] mt-4">{t('copyright')}</p>
+        <p className="text-[#555] text-[11px] mt-4">{t('copyright')}</p>
       </div>
     </footer>
   );

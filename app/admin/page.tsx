@@ -28,7 +28,7 @@ export default async function AdminDashboard() {
   return (
     <div className="p-8">
       <h1 className="text-2xl font-display font-bold text-stone-800 mb-2">Gösterge Paneli</h1>
-      <p className="text-stone-500 text-sm mb-8">Termessos Hotel QR Menü Yönetimi</p>
+      <p className="text-stone-600 text-sm mb-8">Termessos Hotel QR Menü Yönetimi</p>
 
       <div className="grid grid-cols-3 gap-6 mb-8">
         {cards.map(({ label, value, icon: Icon, color, href }) => (
@@ -37,7 +37,7 @@ export default async function AdminDashboard() {
               <Icon size={22} />
             </div>
             <p className="text-3xl font-bold text-stone-800">{value}</p>
-            <p className="text-sm text-stone-500 mt-1">{label}</p>
+            <p className="text-sm text-stone-600 mt-1">{label}</p>
           </Link>
         ))}
       </div>
@@ -74,8 +74,8 @@ export default async function AdminDashboard() {
               ['Telefon', '+90 384 271 24 95'],
             ].map(([k, v]) => (
               <div key={k} className="flex gap-2">
-                <dt className="text-stone-400 w-20 flex-shrink-0">{k}:</dt>
-                <dd className="text-stone-700">{v}</dd>
+                <dt className="text-stone-600 w-20 flex-shrink-0 font-medium">{k}:</dt>
+                <dd className="text-stone-800">{v}</dd>
               </div>
             ))}
           </dl>
